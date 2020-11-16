@@ -13,7 +13,7 @@ public class EncryptDecrypt extends Application {
 
     public static void main(String[] args) {
         Application.launch(args);
-        System.out.println(encryptDecrypt("Mohammad H Mansour" , 5));
+        //System.out.println(encryptDecrypt("Mohammad H Mansour" , 5));
         
     }
     
@@ -58,15 +58,14 @@ public class EncryptDecrypt extends Application {
 
     private void encryption() {
         String text = inputtext.getText();
-        int rot = Integer.parseInt(rotation.getText());
-        
-        outputtext.setText(encryptDecrypt(text,rot));
+        int rot = Character.toUpperCase(rotation.getText().charAt(0)) - 'A';
+        outputtext.setText(encryptDecrypt(text.toUpperCase(),rot));
     }
 
     private void decryption() {
         String text = inputtext.getText();
-        int rot = -Integer.parseInt(rotation.getText());
-        outputtext.setText(encryptDecrypt(text,rot));
+        int rot = Character.toUpperCase(rotation.getText().charAt(0)) - 'A';
+        outputtext.setText(encryptDecrypt(text.toUpperCase(),-rot));
     }
     
     // when rot is positive the method will encrypt the text
@@ -75,6 +74,10 @@ public class EncryptDecrypt extends Application {
         String finalS = "";
         for (int i = 0; i < s.length(); i++) {
             char temp = s.charAt(i);
+            if(temp == ' '){
+                finalS += ' ';
+                continue;
+            }
             if(((temp - 'A' <= ('Z' - 'A') - rot) && (rot >= 0)) || ((temp - 'A') >= -rot) && (rot < 0))
                 temp += rot ;
                 
