@@ -51,7 +51,7 @@ public class EncryptDecrypt extends Application {
 
         // Create a scene and place it in the stage
         Scene scene = new Scene(gridPane, 400, 250);
-        primaryStage.setTitle("LoanCalculator"); // Set title
+        primaryStage.setTitle("EncryptDecrypt"); // Set title
         primaryStage.setScene(scene); // Place the scene in the stage
         primaryStage.show(); // Display the stage
     }
